@@ -48,3 +48,27 @@ function hapus($id)
 
     return mysqli_affected_rows($conn);
 }
+
+function ubah($data)
+{
+$conn = koneksi();
+
+
+    $id =  htmlspecialchars($data['id']);
+    $nama = htmlspecialchars($data['nama']);
+    $nim = htmlspecialchars($data['nim']);
+    $email = htmlspecialchars($data['email']);
+    $jurusan = htmlspecialchars($data['jurusan']);
+
+    $query = "UPDATE mahasiswa SET
+                nama = '$nama',
+                nim = '$nim',
+                email = '$email',
+                jurusan = '$jurusan'
+              WHERE id = $id
+                ";
+
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}

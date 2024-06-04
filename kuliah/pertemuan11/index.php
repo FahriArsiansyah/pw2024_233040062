@@ -18,7 +18,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <div class="container">
         <h1>Daftar mahasiswa</h1>
 
-        <a href="tambah.php" class="btnbtn-primary">Tambah data mahasiswa</a>
+        <a href="tambah.php" class="btn btn-primary">Tambah data mahasiswa</a>
         <table class="table">
             <thead>
                 <tr>
@@ -40,8 +40,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
                         <td><?= $mhs['email']; ?></td>
                         <td><?= $mhs['jurusan']; ?></td>
                         <td>
-                            <a href="#" class="badge text-bg-warning text-decoration-none">ubah</a>
-                            <a href="hapus.php?id=<?= $mhs['id']; ?>" class="badge text-bg-danger">hapus</a>
+                            <a href="ubah.php?id=<?= $mhs['id']; ?>" class="badge text-bg-warning text-decoration-none">ubah</a>
+                            <a href="hapus.php?id=<?= $mhs['id']; ?>" onclick="return confirm('yakin?');" class="badge text-bg-danger">hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
